@@ -8,7 +8,7 @@ window.onmessage = function(e){
     if(e.data.type == 'generate' ){
      // alert("test:" + JSON.stringify(e))
      const msg = e.data.json
-        console.log(msg)
+
 var fonts = `;--font_OB001_default:${msg.font1}; --font_OB002_default:${msg.font2}; --font_OB003_default:${msg.font3}; --font_OB004_default:${msg.font4}`
     var inlineCSS = "height: 100%;"+jsontocss(generateStyles(msg))+fonts
     document.querySelector("html").setAttribute('style', inlineCSS)
@@ -28,7 +28,7 @@ if (!document.getElementById(cssId))
     link.id   = cssId;
     link.rel  = 'stylesheet';
     link.type = 'text/css';
-    link.href = 'https://s3.amazonaws.com/appforest_uf/f1675239833989x126185156287731200/open.css';
+   //link.href = 'https://s3.amazonaws.com/appforest_uf/f1675239833989x126185156287731200/open.css';
     link.media = 'all';
     head.appendChild(link);
 }
@@ -474,53 +474,51 @@ function generateStyles(msg){
             //ACCENT COLOR SET UP
             if (styles[i].path=='Color Main') {
                 styles[i].color = hslToHex(accentHsl[0],accentHsl[1],accentHsl[2])
-                console.log(styles[i].color)
+
             }
             //SHADES SET UP
             if (stylestones.hasOwnProperty(styles[i].path)) {
-                console.log(styles[i].path);
+
                 var sat2 = Number(variations[styles[i].path].s) + Number(sat);
                 if (sat2 > 100) {
                     sat2 = 100;
                 }
-                console.log("newSAT:" + sat2);
-                console.log(styles[i].color)
+
                 var col = hslToHex(mainS, sat2, variations[styles[i].path].l);
                 styles[i].color = col
                 
             }
             // Color Secondary SETUP
             if (styles[i].path === 'Color Secondary') {
-                console.log(styles[i].path);
+
                 var col = hslToHex(secS, variations[styles[i].path].s, variations[styles[i].path].l);
                 if (model === 'Monochromatic') {
                     col = hslToHex(mainS, variations[styles[i].path].s, 90);
                 }
                 if (model === 'Duo') {
-                    //console.log(secHsl);
+
                     col = hslToHex(secHsl[0], 100, 90);
-                    console.log("secondaryC:" + col);
+
                 }
                 styles[i].color =  col
-                console.log(styles[i].color)
+
             }
             // Color Tertiary SETUP
             if (styles[i].path =='Color Tertiary') {
-                console.log(styles[i].path);
+
                 var col = hslToHex(mainS, variations[styles[i].path].s, variations[styles[i].path].l);
                 if (model === 'Monochromatic') {
                     col = hslToHex(mainS, variations[styles[i].path].s, 80);
                 }
                 if (model === 'Duo') {
                     col = hslToHex(secHsl[0], 100, 80);
-                    console.log("teritaryC:" + col);
+
                 }
                 styles[i].color = col
             }
             // COLOR BUTTON TEXT SETUP (BLACK OR WHITE)
             if (styles[i].path =='btn-Color Main-Text') {
-                console.log('setting up button tex...');
-                console.log(styles[i].path);
+
                 var col = hslToHex(0, 0, 0);
                 if (accentHsl[2] <= 50) {
                     col = hslToHex(0, 0, 100);
@@ -544,7 +542,7 @@ function generateStyles(msg){
                     for (let k = 0; k < styles.length; k++) {
                         if (styles[k].path === buttonStyles[i].color) {
                             var btnc = k;
-                            console.log("k " + styles[k].path);
+
                             styles[j].color = styles[k].color;
                         }
                     }
@@ -559,7 +557,7 @@ function generateStyles(msg){
                 //find the style whose path is the sme but without hover
                 for (let j = 0; j < styles.length; j++) {
                     if (styles[j].path == styles[i].path.replace(' hover','')) {
-                        console.log(styles[j].path);
+
                         var col = hovercolor(styles[j].color)
                         styles[i].color = col
                     }
