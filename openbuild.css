@@ -59,4 +59,39 @@ box-shadow: rgba(0, 0, 0, 0.00) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6
     flex-direction: column-reverse !important;
     }
 
-    
+
+/* openBuild Style Generator */
+
+iframe#openpanel {
+    height: 100vh;
+    width: 400px;
+    position: fixed;
+    top: 0px;
+    right: -400px;
+    z-index: 2147483647;
+    transition: all 0.8s ease 0;
+    border: 1px solid #f0f0f0;
+}
+
+img#toggle {
+    height: 35px;
+    width: 35px;
+    position: fixed;
+    top: 20px;
+    bottom: 20px;
+    z-index: 2147483647;
+    z-index: 2147483646;
+    cursor: pointer;
+}
+
+
+#obBtn {
+    height: 50px;
+    width: 172px;
+    position: absolute;
+    /* align-self: center; */
+    right: 192px;
+    top: 32px;
+    border-radius: 5px;
+}
+
