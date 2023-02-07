@@ -32,7 +32,7 @@ if (!document.getElementById(cssId))
     link.media = 'all';
     head.appendChild(link);
 }
-
+window.addEventListener('load', function () {
 const location3 = new URL(window.location.href);
 //check if location have path 'version-test' and url parameter 'openbuild'
 if (location3.pathname.includes('version-test') && location3.searchParams.get('openbuild')) {
@@ -50,7 +50,7 @@ var url = "https://openbuild-app.bubbleapps.io/version-test/bstyles"
     document.body.appendChild(iframe);
     document.body.appendChild(icon);
     // iframe.style.display = 'none';
-}
+}}
 
 function showPanel() {
     const ifr = document.getElementById('openpanel');
