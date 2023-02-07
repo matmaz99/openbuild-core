@@ -50,7 +50,7 @@ var url = "https://openbuild-app.bubbleapps.io/version-test/bstyles"
     document.body.appendChild(iframe);
     document.body.appendChild(icon);
     // iframe.style.display = 'none';
-}}
+}})
 
 function showPanel() {
     const ifr = document.getElementById('openpanel');
