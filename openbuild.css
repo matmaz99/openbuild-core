@@ -95,3 +95,6 @@ img#toggle {
     border-radius: 5px;
 }
 
+#sticky {
+    position: sticky !important;
+    }
