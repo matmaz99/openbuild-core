@@ -9,7 +9,7 @@
 
 /* overflow for RGs */
 
-.bubble-rg {
+#overflow {
 overflow: visible !important;
 }
     
